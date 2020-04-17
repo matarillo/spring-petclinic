@@ -1,0 +1,13 @@
+image: openjdk:11
+
+pipelines:
+  custom:
+    package:
+      - step:
+          caches:
+            - maven
+          script:
+            - bash ./mvnw package
+          artifacts:
+            - target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar
+            - target/spring-petclinic.war
